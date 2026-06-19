@@ -1,0 +1,7 @@
+# slugify.alk — turn a title into a URL-safe slug
+# Usage: echo -n "Hello, World! My First Post" | alk run slugify.alk
+#   ->   hello-world-my-first-post
+
+to-lower
+regex-replace [^a-z0-9]+ -    # runs of non-alphanumerics become a single hyphen
+regex-replace ^-+|-+$ ""      # trim leading/trailing hyphens
